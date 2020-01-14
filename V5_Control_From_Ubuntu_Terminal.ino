@@ -25,6 +25,18 @@ AccelStepper stepper(1, stepPin, dirPin); // Set to 1 when using a driver
 
 #define BUILTIN_LED 13
 ros::NodeHandle  nh;
+// Relay Pinout and Declaration
+/* Manmode and Automode need to be both HIGH in order to
+ *  have the robot move automatically, Deadmanual needs to be HIGH as
+ *  well. To allow manual driving mode, set all of them LOW.
+ */
+#define AUTOMODE 44
+#define MANUALMODE 40
+#define FORWARD 34
+#define REVERSE 30
+#define STEERRELAY 36
+#define BUMPER 3
+#define DEADMANUAL 32
 
 void setProportionalControl(const geometry_msgs::Twist &cmd_vel)
 {
